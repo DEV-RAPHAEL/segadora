@@ -16,7 +16,7 @@ def extract_emails():
     response = requests.get(website_url)
 
     # Extract emails using regular expression
-    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}(?<!\.png|\.jpg|\.jpeg|\.gif)\b'    
     emails = re.findall(email_pattern, response.text)
 
     # Return the extracted emails as JSON response
